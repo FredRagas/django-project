@@ -1,0 +1,199 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="page-wrapper">
+    <div class="posts-container">
+        <h1 class="page-heading">✨ Discover Latest Posts</h1>
+
+        {% for post in posts %}
+        <div class="post-card">
+            <div class="post-header">
+                <div class="author">
+                    <div class="avatar">
+                        {{ post.userId|stringformat:"s"|slice:":1" }}
+                    </div>
+                    <div>
+                        <div class="author-name">Author {{ post.userId }}</div>
+                        <div class="post-date">Published recently</div>
+                    </div>
+                </div>
+                <div class="post-id">Post #{{ post.id }}</div>
+            </div>
+
+            <h2 class="post-title">{{ post.title|capfirst }}</h2>
+
+            <p class="post-body">
+                {{ post.body|truncatewords:35 }}
+            </p>
+
+            <div class="post-actions">
+                <button class="btn like-btn">❤️ Like</button>
+                <button class="btn comment-btn">💬 Comment</button>
+                <a href="#" class="read-btn">Read Full Post →</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+/* Background */
+.page-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 60px 20px;
+}
+
+/* Container */
+.posts-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Heading */
+.page-heading {
+    text-align: center;
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+
+/* Post Card */
+.post-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* Header */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    background: #ff7eb3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.author-name {
+    font-weight: 600;
+}
+
+.post-date {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.post-id {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Title */
+.post-title {
+    font-size: 1.6rem;
+    margin: 15px 0;
+}
+
+/* Body */
+.post-body {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+}
+
+.like-btn {
+    background: #ff4b5c;
+    color: white;
+}
+
+.comment-btn {
+    background: #2196f3;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.read-btn {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.read-btn:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .post-card {
+        padding: 20px;
+    }
+
+    .page-heading {
+        font-size: 1.8rem;
+    }
+
+    .post-title {
+        font-size: 1.3rem;
+    }
+
+    .post-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+
+{% endblock %}

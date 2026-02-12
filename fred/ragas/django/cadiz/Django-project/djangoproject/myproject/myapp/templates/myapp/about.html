@@ -1,0 +1,98 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+
+<style>
+.about-section {
+    padding: 60px 0;
+}
+
+.about-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+.about-icon {
+    font-size: 40px;
+    color: #0d6efd;
+}
+
+.team-img {
+    width: 100%;
+    border-radius: 15px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.section-title {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+</style>
+
+<div class="container about-section">
+
+    <!-- Hero Section -->
+    <div class="text-center mb-5">
+        <h1 class="section-title">About Us</h1>
+        <p class="lead text-muted">
+            Learn more about who we are and what we do.
+        </p>
+    </div>
+
+    <!-- About Content -->
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <img src="https://source.unsplash.com/600x400/?office,team" alt="Team Image" class="team-img">
+        </div>
+        <div class="col-md-6">
+            <h3 class="mb-3">Our Mission</h3>
+            <p>
+                We aim to provide high-quality solutions that help businesses grow and succeed. 
+                Our team is dedicated to delivering reliable and innovative services.
+            </p>
+            <p>
+                With a passion for technology and creativity, we focus on building products 
+                that make a real difference.
+            </p>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card about-card p-4">
+                <div class="about-icon mb-3">🚀</div>
+                <h5>Innovation</h5>
+                <p>We constantly explore new ideas and technologies.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card about-card p-4">
+                <div class="about-icon mb-3">💡</div>
+                <h5>Creativity</h5>
+                <p>Creative solutions tailored to your needs.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card about-card p-4">
+                <div class="about-icon mb-3">🤝</div>
+                <h5>Support</h5>
+                <p>We provide reliable and continuous support.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
